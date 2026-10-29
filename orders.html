@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lịch Sử Đơn Hàng - Store Anh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/user.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-logo-icon">💻</div>
+        <span>Store <span>Anh</span></span>
+      </a>
+
+      <div class="header-search">
+        <form class="header-search-form" id="global-search-form">
+          <input type="text" name="q" class="search-input" placeholder="Tìm kiếm Laptop, PC Gaming, RTX 4070, Màn hình..." autocomplete="off">
+          <button type="submit" class="search-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>Tìm</span>
+          </button>
+        </form>
+      </div>
+
+      <div class="header-actions">
+        <div id="header-user-menu"></div>
+        <a href="cart.html" class="header-action-btn" id="header-cart-btn">
+          <div class="header-action-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            <span class="badge-cart-count" style="display: none;">0</span>
+          </div>
+          <div class="header-action-text">
+            <span class="header-action-sub">Giỏ hàng</span>
+            <span class="header-action-title">Thanh toán</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Orders Content -->
+  <main class="container" style="padding-bottom: 3rem;">
+    <div class="breadcrumb">
+      <a href="index.html">Trang chủ</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Đơn hàng của tôi</span>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+      <h2 style="font-size: 1.5rem;">Quản lý & Theo dõi đơn hàng</h2>
+      <div style="max-width: 300px; width: 100%;">
+        <input type="text" id="order-search-input" class="form-control" placeholder="Tìm kiếm theo mã đơn #ORD-...">
+      </div>
+    </div>
+
+    <!-- Status filter tabs -->
+    <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; overflow-x: auto; padding-bottom: 0.5rem;">
+      <button type="button" class="btn btn-outline btn-sm order-filter-tab active" data-status="all">Tất cả đơn</button>
+      <button type="button" class="btn btn-outline btn-sm order-filter-tab" data-status="cho_xac_nhan">Chờ xác nhận</button>
+      <button type="button" class="btn btn-outline btn-sm order-filter-tab" data-status="dang_giao">Đang giao</button>
+      <button type="button" class="btn btn-outline btn-sm order-filter-tab" data-status="da_giao">Đã giao</button>
+      <button type="button" class="btn btn-outline btn-sm order-filter-tab" data-status="da_huy">Đã hủy</button>
+    </div>
+
+    <!-- Orders list container -->
+    <div id="orders-list-wrap">
+      <!-- Injected by OrdersPage.renderOrders() -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 Store Anh - Bản quyền thuộc về Đồ Án Sinh Viên CNTT.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/orders.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      OrdersPage.init();
+    });
+  </script>
+</body>
+</html>

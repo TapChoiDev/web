@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: store_anh_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-store_anh_local_root_password}
+      MYSQL_DATABASE: ${DB_NAME:-webbanmt_db}
+      MYSQL_USER: ${MYSQL_USER:-store_anh_user}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-store_anh_local_password}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./scripts/schema.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 5
+
+  app:
+    build: .
+    container_name: store_anh_app
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "5000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: ${MYSQL_USER:-store_anh_user}
+      DB_PASSWORD: ${MYSQL_PASSWORD:-store_anh_local_password}
+      DB_NAME: ${DB_NAME:-webbanmt_db}
+      JWT_SECRET: ${JWT_SECRET:-replace_with_a_long_random_secret_before_deployment}
+      COOKIE_SECRET: ${COOKIE_SECRET:-replace_with_a_long_random_cookie_secret}
+      VNP_TMN_CODE: ${VNP_TMN_CODE:-your_sandbox_terminal_code}
+      VNP_HASH_SECRET: ${VNP_HASH_SECRET:-your_sandbox_hash_secret}
+      VNP_URL: https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+      VNP_RETURN_URL: http://localhost:5000/payment/result.html
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+
+volumes:
+  mysql_data:

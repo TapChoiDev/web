@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanh Toán Đơn Hàng - Store Anh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/user.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-logo-icon">💻</div>
+        <span>Store <span>Anh</span></span>
+      </a>
+
+      <div style="font-weight: 600; font-size: 1.1rem; color: #94A3B8;">
+        🔒 Thanh toán an toàn
+      </div>
+
+      <div class="header-actions">
+        <a href="cart.html" class="btn btn-outline text-white" style="border-color: rgba(255,255,255,0.2);">
+          ← Quay lại giỏ hàng
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Checkout Content -->
+  <main class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Trang chủ</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="cart.html">Giỏ hàng</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Thanh toán đơn hàng</span>
+    </div>
+
+    <form id="checkout-form" class="checkout-layout">
+      <!-- Left Column: Recipient Info & Payment Selection -->
+      <div>
+        <!-- Recipient Information Card -->
+        <div class="card" style="padding: 1.75rem; margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.25rem; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>📍</span> Thông tin giao hàng
+          </h3>
+
+          <div class="form-group">
+            <label class="form-label" for="checkout-fullname">Họ và tên người nhận <span class="required">*</span></label>
+            <input type="text" id="checkout-fullname" class="form-control" placeholder="Ví dụ: Nguyễn Văn An" required>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="checkout-phone">Số điện thoại <span class="required">*</span></label>
+              <input type="tel" id="checkout-phone" class="form-control" placeholder="Ví dụ: 0912345678" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="checkout-email">Địa chỉ Email <span class="required">*</span></label>
+              <input type="email" id="checkout-email" class="form-control" placeholder="Ví dụ: an.nguyen@gmail.com" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="checkout-address">Địa chỉ nhận hàng cụ thể <span class="required">*</span></label>
+            <input type="text" id="checkout-address" class="form-control" placeholder="Số nhà, ngõ/ngách, tên đường, phường/xã, quận/huyện..." required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="checkout-note">Ghi chú đơn hàng (Tùy chọn)</label>
+            <textarea id="checkout-note" class="form-control" rows="2" placeholder="Ví dụ: Giao giờ hành chính, gọi trước khi đến..."></textarea>
+          </div>
+        </div>
+
+        <!-- Payment Method Selection Card -->
+        <div class="card" style="padding: 1.75rem;">
+          <h3 style="font-size: 1.25rem; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>💳</span> Phương thức thanh toán
+          </h3>
+
+          <!-- COD Option -->
+          <div class="payment-method-card selected">
+            <input type="radio" name="paymentMethod" value="COD" id="pay-cod" checked style="accent-color: var(--accent); width: 18px; height: 18px;">
+            <div class="payment-method-icon">💵</div>
+            <div style="flex: 1;">
+              <label for="pay-cod" style="font-weight: 700; display: block; cursor: pointer;">Thanh toán khi nhận hàng (COD)</label>
+              <small style="color: var(--text-muted);">Khách hàng thanh toán tiền mặt trực tiếp cho nhân viên giao vận khi nhận kiện hàng.</small>
+            </div>
+          </div>
+
+          <!-- VNPAY Option -->
+          <div class="payment-method-card">
+            <input type="radio" name="paymentMethod" value="VNPAY" id="pay-vnpay" style="accent-color: var(--accent); width: 18px; height: 18px;">
+            <div class="payment-method-icon" style="background: #005baa; color: #fff; font-size: 0.75rem; font-weight: 800;">VNPAY</div>
+            <div style="flex: 1;">
+              <label for="pay-vnpay" style="font-weight: 700; display: block; cursor: pointer;">Thanh toán trực tuyến qua VNPAY (Mô phỏng Sandbox)</label>
+              <small style="color: var(--text-muted);">Hỗ trợ quét mã VNPAY-QR, thẻ ATM nội địa hoặc thẻ quốc tế Visa/Mastercard.</small>
+            </div>
+          </div>
+
+          <div style="font-size: 0.775rem; color: #94A3B8; margin-top: 1rem; border-top: 1px dashed var(--border-color); padding-top: 0.75rem;">
+            🛡️ Bằng việc nhấn nút Đặt hàng, bạn đồng ý với Điều khoản dịch vụ và Chính sách xử lý dữ liệu của Store Anh.
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Order Review & Submit -->
+      <div>
+        <div class="card" style="padding: 1.75rem; position: sticky; top: 90px;">
+          <h3 style="font-size: 1.25rem; margin-bottom: 1.25rem;">Đơn hàng của bạn</h3>
+
+          <div id="checkout-items-list" style="max-height: 280px; overflow-y: auto; margin-bottom: 1.25rem;">
+            <!-- Injected by CheckoutPage.renderOrderSummary() -->
+          </div>
+
+          <div class="summary-row">
+            <span>Tạm tính tiền hàng:</span>
+            <strong id="checkout-subtotal" style="color: var(--text-main);">0 ₫</strong>
+          </div>
+
+          <div class="summary-row">
+            <span>Phí vận chuyển:</span>
+            <span class="badge badge-success">Miễn phí giao hàng</span>
+          </div>
+
+          <div class="summary-row total">
+            <span>Tổng số tiền:</span>
+            <span id="checkout-total" style="color: #EF4444; font-size: 1.4rem;">0 ₫</span>
+          </div>
+
+          <button type="submit" id="btn-submit-order" class="btn btn-primary btn-block btn-lg" style="margin-top: 1.5rem;">
+            ✓ Xác nhận đặt hàng
+          </button>
+
+          <p style="text-align: center; font-size: 0.775rem; color: var(--text-muted); margin-top: 0.75rem;">
+            Kiểm tra kỹ thông tin địa chỉ trước khi xác nhận tạo đơn.
+          </p>
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border: none; padding: 2rem 0;">
+        <div>© 2026 Store Anh - Hệ Thống Bán Lẻ Máy Tính & Linh Kiện Trực Tuyến.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/checkout.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      CheckoutPage.init();
+    });
+  </script>
+</body>
+</html>

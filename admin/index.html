@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Tổng Quan - Store Anh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-header">
+        <a href="index.html" class="admin-brand">
+          <span>💻 Store Anh</span>
+          <span class="admin-badge">ADMIN</span>
+        </a>
+      </div>
+
+      <nav class="admin-nav">
+        <a href="index.html" class="admin-nav-item active">
+          <span>📊</span>
+          <span>Tổng quan</span>
+        </a>
+        <a href="products.html" class="admin-nav-item">
+          <span>📦</span>
+          <span>Quản lý sản phẩm</span>
+        </a>
+        <a href="orders.html" class="admin-nav-item">
+          <span>📑</span>
+          <span>Quản lý đơn hàng</span>
+        </a>
+        <a href="users.html" class="admin-nav-item">
+          <span>👥</span>
+          <span>Quản lý người dùng</span>
+        </a>
+        <a href="reports.html" class="admin-nav-item">
+          <span>📈</span>
+          <span>Báo cáo & Thống kê</span>
+        </a>
+      </nav>
+
+      <div class="admin-sidebar-footer">
+        <a href="../index.html" class="btn btn-outline text-white btn-sm btn-block" style="border-color: rgba(255,255,255,0.2);">
+          🏪 Xem trang bán hàng
+        </a>
+        <button type="button" class="btn btn-danger btn-sm btn-block" id="btn-admin-logout">
+          🚪 Đăng xuất
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="admin-main">
+      <!-- Admin Topbar -->
+      <header class="admin-topbar">
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <button type="button" class="btn btn-outline btn-sm admin-menu-toggle" style="display:none;" onclick="document.querySelector('.admin-sidebar').classList.toggle('open')">☰</button>
+          <h1 class="admin-topbar-title">Bảng Điều Khiển Tổng Quan</h1>
+        </div>
+
+        <div class="admin-topbar-actions">
+          <a href="../index.html" class="btn btn-outline btn-sm" target="_blank">
+            🔗 Mở cửa hàng
+          </a>
+          <div class="admin-user-profile">
+            <div class="admin-avatar">AD</div>
+            <div>
+              <div style="font-weight: 700; font-size: 0.9rem;">Quản Trị Viên</div>
+              <small style="color: var(--text-muted);">Quản trị viên Store Anh</small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Admin Content Body -->
+      <div class="admin-content">
+        <!-- 4 Key Metric Cards (Real Business Logic calculated from data) -->
+        <div class="admin-metrics-grid">
+          <!-- Revenue -->
+          <div class="metric-card">
+            <div>
+              <div class="metric-label">DOANH THU THỰC TẾ</div>
+              <div class="metric-value" id="metric-total-revenue" style="color: #2563EB;">0 ₫</div>
+              <div class="metric-sub" style="color: var(--success);">
+                ✓ Đơn đã giao & VNPAY hoàn tất
+              </div>
+            </div>
+            <div class="metric-icon-wrap metric-icon-blue">💰</div>
+          </div>
+
+          <!-- Total Orders -->
+          <div class="metric-card">
+            <div>
+              <div class="metric-label">TỔNG ĐƠN HÀNG</div>
+              <div class="metric-value" id="metric-total-orders">0</div>
+              <div class="metric-sub">Toàn bộ đơn trên hệ thống</div>
+            </div>
+            <div class="metric-icon-wrap metric-icon-amber">📑</div>
+          </div>
+
+          <!-- Total Products -->
+          <div class="metric-card">
+            <div>
+              <div class="metric-label">TỔNG SẢN PHẨM</div>
+              <div class="metric-value" id="metric-total-products">0</div>
+              <div class="metric-sub">Đang niêm yết trong kho</div>
+            </div>
+            <div class="metric-icon-wrap metric-icon-purple">📦</div>
+          </div>
+
+          <!-- Total Customers -->
+          <div class="metric-card">
+            <div>
+              <div class="metric-label">TỔNG KHÁCH HÀNG</div>
+              <div class="metric-value" id="metric-total-customers">0</div>
+              <div class="metric-sub">Tài khoản thành viên</div>
+            </div>
+            <div class="metric-icon-wrap metric-icon-green">👥</div>
+          </div>
+        </div>
+
+        <!-- Charts and Top Products Grid -->
+        <div class="admin-charts-grid">
+          <!-- Chart Card -->
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3 class="chart-title">Thống kê phân bổ trạng thái đơn hàng</h3>
+              <span class="badge badge-primary">Dữ liệu thời gian thực</span>
+            </div>
+            <div id="dashboard-chart-container">
+              <!-- Rendered by AdminController -->
+            </div>
+          </div>
+
+          <!-- Top Products Card -->
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3 class="chart-title">Sản phẩm đánh giá cao</h3>
+              <a href="products.html" style="font-size: 0.8rem; color: var(--accent);">Xem tất cả →</a>
+            </div>
+            <div id="dashboard-top-products">
+              <!-- Rendered by AdminController -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Orders Data Table -->
+        <div class="admin-table-container">
+          <div class="table-toolbar">
+            <h3 style="font-size: 1.1rem; margin: 0;">Đơn hàng mới tiếp nhận</h3>
+            <a href="orders.html" class="btn btn-outline btn-sm">Xem tất cả đơn hàng →</a>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="admin-data-table">
+              <thead>
+                <tr>
+                  <th>Mã Đơn</th>
+                  <th>Khách Hàng</th>
+                  <th>Ngày Đặt</th>
+                  <th>Tổng Tiền</th>
+                  <th>Phương Thức</th>
+                  <th>Trạng Thái</th>
+                </tr>
+              </thead>
+              <tbody id="dashboard-recent-orders">
+                <!-- Rendered by AdminController -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/data.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/orders.js"></script>
+  <script src="../js/admin.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      AdminController.initDashboard();
+
+      document.getElementById('btn-admin-logout').addEventListener('click', () => {
+        App.confirmAction('Bạn có chắc chắn muốn đăng xuất khỏi trang Quản trị?', () => {
+          window.auth.logout();
+          window.location.href = '../login.html';
+        }, 'Đăng xuất Admin');
+      });
+    });
+  </script>
+</body>
+</html>

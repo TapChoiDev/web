@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Quản Lý Đơn Hàng - Store Anh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-header">
+        <a href="index.html" class="admin-brand">
+          <span>💻 Store Anh</span>
+          <span class="admin-badge">ADMIN</span>
+        </a>
+      </div>
+
+      <nav class="admin-nav">
+        <a href="index.html" class="admin-nav-item">
+          <span>📊</span>
+          <span>Tổng quan</span>
+        </a>
+        <a href="products.html" class="admin-nav-item">
+          <span>📦</span>
+          <span>Quản lý sản phẩm</span>
+        </a>
+        <a href="orders.html" class="admin-nav-item active">
+          <span>📑</span>
+          <span>Quản lý đơn hàng</span>
+        </a>
+        <a href="users.html" class="admin-nav-item">
+          <span>👥</span>
+          <span>Quản lý người dùng</span>
+        </a>
+        <a href="reports.html" class="admin-nav-item">
+          <span>📈</span>
+          <span>Báo cáo & Thống kê</span>
+        </a>
+      </nav>
+
+      <div class="admin-sidebar-footer">
+        <a href="../index.html" class="btn btn-outline text-white btn-sm btn-block" style="border-color: rgba(255,255,255,0.2);">
+          🏪 Xem trang bán hàng
+        </a>
+        <button type="button" class="btn btn-danger btn-sm btn-block" id="btn-admin-logout">
+          🚪 Đăng xuất
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <button type="button" class="btn btn-outline btn-sm admin-menu-toggle" style="display:none;" onclick="document.querySelector('.admin-sidebar').classList.toggle('open')">☰</button>
+          <h1 class="admin-topbar-title">Quản Lý Đơn Hàng</h1>
+        </div>
+        <div class="admin-topbar-actions">
+          <a href="reports.html" class="btn btn-outline btn-sm">
+            📊 Xem báo cáo doanh thu
+          </a>
+        </div>
+      </header>
+
+      <div class="admin-content">
+        <div class="admin-table-container">
+          <!-- Toolbar -->
+          <div class="table-toolbar">
+            <div class="table-search">
+              <input type="text" id="admin-order-search" class="form-control" placeholder="Tìm kiếm theo mã đơn, khách hàng, SĐT...">
+            </div>
+            <div class="table-filters">
+              <select id="admin-order-status-filter" class="form-control" style="width: auto;">
+                <option value="">-- Tất cả trạng thái --</option>
+                <option value="cho_xac_nhan">Chờ xác nhận</option>
+                <option value="dang_giao">Đang giao hàng</option>
+                <option value="da_giao">Đã giao thành công</option>
+                <option value="da_huy">Đã hủy</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Orders Table -->
+          <div style="overflow-x: auto;">
+            <table class="admin-data-table">
+              <thead>
+                <tr>
+                  <th>Mã Đơn</th>
+                  <th>Khách Hàng</th>
+                  <th>Ngày Đặt</th>
+                  <th>Tổng Tiền</th>
+                  <th>Thanh Toán</th>
+                  <th>Trạng Thái</th>
+                  <th>Thao Tác</th>
+                </tr>
+              </thead>
+              <tbody id="admin-orders-table-body">
+                <!-- Rendered dynamically by AdminController.initOrders() -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Inspection & Status Update Modal -->
+  <div class="modal-overlay" id="modal-order-detail">
+    <div class="modal-box" style="max-width: 600px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-order-title">Chi tiết đơn hàng</h3>
+        <button type="button" class="modal-close" onclick="App.closeModal('modal-order-detail')">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-order-body">
+        <!-- Injected dynamically by AdminController.openViewOrderModal() -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="App.closeModal('modal-order-detail')">Đóng</button>
+        <button type="button" class="btn btn-primary" id="btn-save-order-status">Lưu thay đổi</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/data.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/orders.js"></script>
+  <script src="../js/admin.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      AdminController.initOrders();
+
+      document.getElementById('btn-admin-logout').addEventListener('click', () => {
+        App.confirmAction('Bạn có chắc chắn muốn đăng xuất khỏi trang Quản trị?', () => {
+          window.auth.logout();
+          window.location.href = '../login.html';
+        }, 'Đăng xuất Admin');
+      });
+    });
+  </script>
+</body>
+</html>

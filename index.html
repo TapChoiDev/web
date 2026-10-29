@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store Anh - Hệ Thống Bán Lẻ Máy Tính & Linh Kiện Công Nghệ Hàng Đầu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/user.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="topbar">
+    <div class="container topbar-content">
+      <div>
+        <span>🔥 Khuyến mãi Tựu Trường: Giảm ngay 10% cho sinh viên khi mua Laptop & PC Gaming!</span>
+      </div>
+      <div class="topbar-links">
+        <span>📞 Hotline tư vấn: <strong style="color:#ffffff;">1800 6868</strong> (Miễn phí)</span>
+        <a href="orders.html">Tra cứu đơn hàng</a>
+        <a href="admin/index.html" style="color: #60A5FA;">⚡ Quản trị Admin</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Site Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <!-- Logo -->
+      <a href="index.html" class="brand-logo">
+        <div class="brand-logo-icon">💻</div>
+        <span>Store <span>Anh</span></span>
+      </a>
+
+      <!-- Global Search Bar -->
+      <div class="header-search">
+        <form class="header-search-form" id="global-search-form">
+          <input type="text" name="q" class="search-input" placeholder="Tìm kiếm Laptop, PC Gaming, RTX 4070, Màn hình..." autocomplete="off">
+          <button type="submit" class="search-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>Tìm</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Account State Dropdown -->
+        <div id="header-user-menu">
+          <a href="login.html" class="header-action-btn">
+            <div class="header-action-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div class="header-action-text">
+              <span class="header-action-sub">Tài khoản</span>
+              <span class="header-action-title">Đăng nhập</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Cart Button -->
+        <a href="cart.html" class="header-action-btn" id="header-cart-btn">
+          <div class="header-action-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            <span class="badge-cart-count" style="display: none;">0</span>
+          </div>
+          <div class="header-action-text">
+            <span class="header-action-sub">Giỏ hàng</span>
+            <span class="header-action-title">Thanh toán</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Category Navigation Bar -->
+    <nav class="category-navbar">
+      <div class="container">
+        <ul class="category-nav-list">
+          <li><a href="products.html" class="category-nav-item active">🔥 Tất Cả Sản Phẩm</a></li>
+          <li><a href="products.html?cat=laptop-gaming" class="category-nav-item">🎮 Laptop Gaming</a></li>
+          <li><a href="products.html?cat=laptop-van-phong" class="category-nav-item">💼 Laptop Văn Phòng</a></li>
+          <li><a href="products.html?cat=pc-gaming" class="category-nav-item">⚡ PC Gaming</a></li>
+          <li><a href="products.html?cat=pc-van-phong" class="category-nav-item">🖥️ PC Văn Phòng</a></li>
+          <li><a href="products.html?cat=vga" class="category-nav-item">📟 Card Đồ Họa (VGA)</a></li>
+          <li><a href="products.html?cat=cpu" class="category-nav-item">🧩 CPU Bộ Vi Xử Lý</a></li>
+          <li><a href="products.html?cat=man-hinh" class="category-nav-item">🖥️ Màn Hình Máy Tính</a></li>
+          <li><a href="products.html?cat=ram" class="category-nav-item">💾 RAM & Ổ Cứng SSD</a></li>
+          <li><a href="products.html?cat=phu-kien" class="category-nav-item">⌨️ Bàn Phím & Chuột</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content Container -->
+  <main>
+    <!-- Hero Banner Slider -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Main Carousel Banner -->
+          <div class="hero-slider" id="home-hero-slider">
+            <!-- Slide 1 -->
+            <div class="hero-slide active">
+              <div class="hero-slide-content">
+                <span class="hero-slide-tag">Thế Hệ Mới 2026</span>
+                <h1 class="hero-slide-title">ASUS ROG Strix G16 i9-14900HX</h1>
+                <p class="hero-slide-desc">Sức mạnh vượt chuẩn cùng RTX 4070 8GB và màn hình 240Hz sắc nét. Tặng kèm chuột ROG Chakram và balo cao cấp.</p>
+                <div class="flex gap-3">
+                  <a href="product-detail.html?id=prod-01" class="btn btn-primary btn-lg">Khám phá ngay</a>
+                  <a href="products.html?cat=laptop-gaming" class="btn btn-outline btn-lg text-white" style="border-color: rgba(255,255,255,0.4);">Xem Laptop Gaming</a>
+                </div>
+              </div>
+              <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=600&q=80" alt="ASUS ROG" class="hero-slide-img">
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="hero-slide">
+              <div class="hero-slide-content">
+                <span class="hero-slide-tag" style="background: #10B981;">Hiệu Năng Vô Địch</span>
+                <h1 class="hero-slide-title">PC Gaming Ultra i7 14700F / RTX 4070 Super</h1>
+                <p class="hero-slide-desc">Tản nước AIO 360 RGB lộng lẫy, chiến mượt mà mọi tựa game 4K. Miễn phí lắp đặt và bảo hành 36 tháng tận nơi.</p>
+                <div class="flex gap-3">
+                  <a href="product-detail.html?id=prod-04" class="btn btn-primary btn-lg">Đặt mua ngay</a>
+                  <a href="products.html?cat=pc-gaming" class="btn btn-outline btn-lg text-white" style="border-color: rgba(255,255,255,0.4);">Xem dàn PC</a>
+                </div>
+              </div>
+              <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=600&q=80" alt="PC Gaming" class="hero-slide-img">
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="hero-slide">
+              <div class="hero-slide-content">
+                <span class="hero-slide-tag" style="background: #8B5CF6;">Sang Trọng Tinh Tế</span>
+                <h1 class="hero-slide-title">Apple MacBook Air 15 M2 Siêu Mỏng</h1>
+                <p class="hero-slide-desc">Thời lượng pin 18 giờ liên tục. Màn hình Liquid Retina rực rỡ chuẩn đồ họa. Trợ giá trả góp 0% cho học sinh - sinh viên.</p>
+                <div class="flex gap-3">
+                  <a href="product-detail.html?id=prod-02" class="btn btn-primary btn-lg">Xem chi tiết</a>
+                  <a href="products.html?cat=laptop-van-phong" class="btn btn-outline btn-lg text-white" style="border-color: rgba(255,255,255,0.4);">Laptop Văn Phòng</a>
+                </div>
+              </div>
+              <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80" alt="MacBook Air" class="hero-slide-img">
+            </div>
+
+            <!-- Carousel Dots -->
+            <div class="hero-slider-dots">
+              <span class="hero-dot active" onclick="switchHeroSlide(0)"></span>
+              <span class="hero-dot" onclick="switchHeroSlide(1)"></span>
+              <span class="hero-dot" onclick="switchHeroSlide(2)"></span>
+            </div>
+          </div>
+
+          <!-- Promo Side Cards -->
+          <div class="hero-sidebar-banners">
+            <div class="hero-promo-card">
+              <div class="hero-promo-content">
+                <span class="badge badge-warning" style="margin-bottom: 0.5rem;">CỰC HOT</span>
+                <h3 style="color:#fff; font-size:1.15rem; margin-bottom: 0.4rem;">VGA RTX 4080 Super</h3>
+                <p style="font-size: 0.8rem; color: #94A3B8; margin-bottom: 1rem;">Giảm ngay 3.000.000 ₫ cho khách hàng nâng cấp dàn PC</p>
+                <a href="products.html?cat=vga" class="btn btn-primary btn-sm">Săn ngay →</a>
+              </div>
+              <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=300&q=80" alt="VGA Promo" class="hero-promo-img">
+            </div>
+
+            <div class="hero-promo-card" style="background: linear-gradient(135deg, #1E1B4B 0%, #0F172A 100%);">
+              <div class="hero-promo-content">
+                <span class="badge badge-info" style="margin-bottom: 0.5rem;">QUÀ TẶNG</span>
+                <h3 style="color:#fff; font-size:1.15rem; margin-bottom: 0.4rem;">Màn hình LG UltraGear 2K</h3>
+                <p style="font-size: 0.8rem; color: #94A3B8; margin-bottom: 1rem;">165Hz IPS 1ms chỉ từ 5.790.000 ₫ bảo hành 2 năm</p>
+                <a href="products.html?cat=man-hinh" class="btn btn-outline btn-sm text-white" style="border-color: rgba(255,255,255,0.3);">Xem màn hình →</a>
+              </div>
+              <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=300&q=80" alt="Screen Promo" class="hero-promo-img">
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Key Value Highlights -->
+        <div class="features-bar">
+          <div class="feature-box">
+            <div class="feature-icon-wrap">🛡️</div>
+            <div class="feature-info">
+              <h4>100% Hàng Chính Hãng</h4>
+              <p>Cam kết linh kiện chuẩn hãng, hóa đơn VAT đầy đủ</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon-wrap">🚀</div>
+            <div class="feature-info">
+              <h4>Giao Hàng Siêu Tốc 2H</h4>
+              <p>Miễn phí giao hàng nội thành cho mọi đơn máy tính</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon-wrap">🔄</div>
+            <div class="feature-info">
+              <h4>Lỗi Là Đổi Mới 30 Ngày</h4>
+              <p>Đổi mới ngay lập tức nếu phát sinh lỗi từ nhà sản xuất</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon-wrap">💳</div>
+            <div class="feature-info">
+              <h4>Thanh Toán Linh Hoạt</h4>
+              <p>Hỗ trợ VNPAY QR, thẻ ngân hàng và COD toàn quốc</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Grid Shortcut -->
+    <section class="section" style="padding-top: 0; padding-bottom: 1.5rem;">
+      <div class="container">
+        <div class="section-title-wrap">
+          <h2 class="section-title">Danh mục nổi bật</h2>
+          <a href="products.html" class="text-primary font-semibold" style="font-size: 0.9rem;">Xem tất cả danh mục →</a>
+        </div>
+        <div class="category-grid">
+          <a href="products.html?cat=laptop-gaming" class="category-card">
+            <div class="category-card-icon">🎮</div>
+            <span class="category-card-name">Laptop Gaming</span>
+          </a>
+          <a href="products.html?cat=laptop-van-phong" class="category-card">
+            <div class="category-card-icon">💻</div>
+            <span class="category-card-name">Laptop Văn Phòng</span>
+          </a>
+          <a href="products.html?cat=pc-gaming" class="category-card">
+            <div class="category-card-icon">⚡</div>
+            <span class="category-card-name">PC Gaming</span>
+          </a>
+          <a href="products.html?cat=vga" class="category-card">
+            <div class="category-card-icon">📟</div>
+            <span class="category-card-name">Card Đồ Họa</span>
+          </a>
+          <a href="products.html?cat=man-hinh" class="category-card">
+            <div class="category-card-icon">🖥️</div>
+            <span class="category-card-name">Màn Hình Máy Tính</span>
+          </a>
+          <a href="products.html?cat=phu-kien" class="category-card">
+            <div class="category-card-icon">⌨️</div>
+            <span class="category-card-name">Bàn Phím & Chuột</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="section" style="padding-top: 1rem;">
+      <div class="container">
+        <div class="section-title-wrap">
+          <h2 class="section-title">🔥 Sản phẩm nổi bật</h2>
+          <a href="products.html" class="text-primary font-semibold" style="font-size: 0.9rem;">Xem tất cả sản phẩm →</a>
+        </div>
+        <div class="products-grid" id="home-featured-grid">
+          <!-- Injected dynamically via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Mid Promotional Banner -->
+    <section class="section" style="padding: 1rem 0;">
+      <div class="container">
+        <div style="background: linear-gradient(135deg, #1E3A8A 0%, #172554 100%); border-radius: 16px; padding: 2.5rem 3rem; color: #ffffff; display: flex; align-items: center; justify-content: space-between; position: relative; overflow: hidden; box-shadow: var(--shadow-lg);">
+          <div style="max-width: 60%; position: relative; z-index: 2;">
+            <span class="badge badge-warning" style="margin-bottom: 0.75rem;">DỊCH VỤ CHUYÊN NGHIỆP</span>
+            <h2 style="color: #ffffff; font-size: 1.85rem; margin-bottom: 0.75rem;">Build PC Đồ Họa & Gaming Theo Yêu Cầu</h2>
+            <p style="color: #93C5FD; font-size: 0.95rem; margin-bottom: 1.5rem;">Đội ngũ kỹ thuật viên Store Anh tư vấn cấu hình tối ưu chi phí, đi dây thẩm mỹ và cài đặt hệ điều hành Windows bản quyền hoàn toàn miễn phí.</p>
+            <a href="products.html?cat=pc-gaming" class="btn btn-primary btn-lg">Tư vấn cấu hình ngay</a>
+          </div>
+          <div style="font-size: 6rem; opacity: 0.8; user-select: none;">🖥️</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Sellers Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title-wrap">
+          <h2 class="section-title">⭐ Sản phẩm bán chạy nhất</h2>
+          <a href="products.html?sort=newest" class="text-primary font-semibold" style="font-size: 0.9rem;">Sản phẩm mới về →</a>
+        </div>
+        <div class="products-grid" id="home-bestsellers-grid">
+          <!-- Injected dynamically via JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Store info -->
+        <div>
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem;">
+            <div class="brand-logo-icon">💻</div>
+            <span>Store <span>Anh</span></span>
+          </a>
+          <p style="color: #94A3B8; font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem;">
+            Hệ thống bán lẻ máy tính xách tay, PC Gaming, linh kiện phần cứng và thiết bị công nghệ chính hãng hàng đầu Việt Nam. Nơi sinh viên & game thủ gửi gắm niềm tin công nghệ.
+          </p>
+          <div style="font-size: 0.85rem; color: #E2E8F0; display: flex; flex-direction: column; gap: 0.4rem;">
+            <div>📍 <strong>Showroom chính:</strong> 123 Cầu Giấy, Phường Dịch Vọng, Quận Cầu Giấy, Hà Nội</div>
+            <div>📞 <strong>Hotline:</strong> 1800 6868 (8:00 - 21:30 hàng ngày)</div>
+          </div>
+        </div>
+
+        <!-- Links 1 -->
+        <div>
+          <h4 class="footer-col-title">Về Store Anh</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Giới thiệu cửa hàng</a></li>
+            <li><a href="products.html">Sản phẩm khuyến mãi</a></li>
+            <li><a href="orders.html">Tra cứu đơn hàng</a></li>
+            <li><a href="profile.html">Tài khoản cá nhân</a></li>
+            <li><a href="admin/index.html">Hệ thống Quản trị</a></li>
+          </ul>
+        </div>
+
+        <!-- Links 2 -->
+        <div>
+          <h4 class="footer-col-title">Chính sách & Hỗ trợ</h4>
+          <ul class="footer-links">
+            <li><a href="#">Chính sách bảo hành 36T</a></li>
+            <li><a href="#">Chính sách đổi trả 1 - 1</a></li>
+            <li><a href="#">Phương thức giao hàng 2h</a></li>
+            <li><a href="#">Chính sách bảo mật thông tin</a></li>
+            <li><a href="#">Hướng dẫn trả góp 0%</a></li>
+          </ul>
+        </div>
+
+        <!-- Payment & Certs -->
+        <div>
+          <h4 class="footer-col-title">Thanh toán & Kết nối</h4>
+          <p style="font-size: 0.85rem; margin-bottom: 1rem;">Chúng tôi chấp nhận đa dạng các cổng thanh toán uy tín và bảo mật:</p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+            <span class="badge" style="background: #ffffff; color: #005baa; font-weight: 800; border: 1px solid #CBD5E1; padding: 0.4rem 0.6rem;">VNPAY-QR</span>
+            <span class="badge" style="background: #ffffff; color: #1E293B; font-weight: 700; border: 1px solid #CBD5E1; padding: 0.4rem 0.6rem;">COD Tiền Mặt</span>
+            <span class="badge" style="background: #ffffff; color: #1A1F71; font-weight: 800; border: 1px solid #CBD5E1; padding: 0.4rem 0.6rem;">VISA / MASTER</span>
+          </div>
+          <div style="font-size: 0.8rem; color: #64748B;">
+            Đồ án tốt nghiệp / Bài tập lớn môn Phát triển Ứng dụng Web.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Store Anh - Bản quyền thuộc về Đồ Án Sinh Viên Công Nghệ Thông Tin.</div>
+        <div>Xây dựng trên nền tảng HTML5, CSS3 và Vanilla JavaScript thuần.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/products.js"></script>
+
+  <script>
+    // Hero Slider Animation
+    let currentHeroSlide = 0;
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    const heroDots = document.querySelectorAll('.hero-dot');
+
+    function switchHeroSlide(idx) {
+      if (idx < 0 || idx >= heroSlides.length) return;
+      heroSlides.forEach(s => s.classList.remove('active'));
+      heroDots.forEach(d => d.classList.remove('active'));
+      currentHeroSlide = idx;
+      heroSlides[currentHeroSlide].classList.add('active');
+      heroDots[currentHeroSlide].classList.add('active');
+    }
+
+    setInterval(() => {
+      let next = (currentHeroSlide + 1) % heroSlides.length;
+      switchHeroSlide(next);
+    }, 5000);
+
+    // Populate Home Sections on load via API
+    document.addEventListener('DOMContentLoaded', async () => {
+      let allProducts = [];
+      try {
+        if (window.Api && window.Api.getProducts) {
+          const res = await window.Api.getProducts({ limit: 16 });
+          if (res && res.success && Array.isArray(res.data)) {
+            allProducts = res.data;
+          }
+        }
+      } catch (err) {
+        console.warn('API error, using fallback products:', err);
+      }
+
+      if (allProducts.length === 0 && window.DATA_PRODUCTS) {
+        allProducts = window.DATA_PRODUCTS;
+      }
+
+      // Featured grid
+      const featuredGrid = document.getElementById('home-featured-grid');
+      if (featuredGrid) {
+        const featured = allProducts.filter(p => p.featured).slice(0, 4);
+        featuredGrid.innerHTML = (featured.length ? featured : allProducts.slice(0, 4)).map(p => App.renderProductCard(p)).join('');
+      }
+
+      // Best sellers grid
+      const bestSellersGrid = document.getElementById('home-bestsellers-grid');
+      if (bestSellersGrid) {
+        const bestSellers = allProducts.filter(p => p.bestSeller).slice(0, 4);
+        bestSellersGrid.innerHTML = (bestSellers.length ? bestSellers : allProducts.slice(4, 8)).map(p => App.renderProductCard(p)).join('');
+      }
+    });
+  </script>
+</body>
+</html>
